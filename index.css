@@ -28,6 +28,8 @@ header {
     height: 80px; /* ヘッダーの高さを明示的に設定 */
 }
 
+
+
 header h1 {
     font-size: 2rem;
     letter-spacing: 2px;
@@ -74,6 +76,7 @@ main {
     margin: 0; /* デフォルトのマージンを削除 */
 }
 
+
 /* セクション */
 section {
     background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
@@ -88,6 +91,8 @@ section {
     padding-bottom: 20px; /* 下部の余白を追加 */
     overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
 }
+
+
 
 section h2 {
     color: #f5c542;
@@ -152,3 +157,8 @@ footer {
     }
 }
 
+.stand-effect {
+    animation: stand-appear 2s ease-in-out infinite;
+    color: #e74c3c; /* 赤 */
+    font-size: 2rem;
+}
