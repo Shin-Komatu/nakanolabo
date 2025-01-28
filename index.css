@@ -29,6 +29,7 @@ header {
 }
 
 
+
 header h1 {
     font-size: 2rem;
     letter-spacing: 2px;
@@ -86,10 +87,8 @@ section {
     width: 100%; /* 幅を100%にして最大幅内で収める */
     text-align: center; /* セクション内のテキストを中央揃え */
     margin-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
+    flex-grow: 1; /* 残りのスペースを占める */
     padding-bottom: 20px; /* 下部の余白を追加 */
-    flex-grow: 1; /* フレックスボックスで残りのスペースを埋める */
-    max-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを差し引いた最大高さ */
-    overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
 }
 
 
