@@ -25,6 +25,7 @@ header {
     align-items: center; /* 垂直方向に中央揃え */
     margin-left: auto; /* 左のマージンを自動 */
     margin-right: auto; /* 右のマージンを自動 */
+    height: 80px; /* ヘッダーの高さを明示的に設定 */
 }
 
 header h1 {
@@ -73,7 +74,6 @@ main {
     margin: 0; /* デフォルトのマージンを削除 */
 }
 
-
 /* セクションのスタイル */
 section {
     background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
@@ -83,7 +83,9 @@ section {
     max-width: 800px; /* セクションの最大幅を設定 */
     width: 100%; /* 幅を100%にして最大幅内で収める */
     text-align: center; /* セクション内のテキストを中央揃え */
+    margin-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
 }
+
 
 section h2 {
     color: #f5c542;
