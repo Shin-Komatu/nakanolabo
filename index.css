@@ -62,22 +62,26 @@ main {
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.8); /* 黒のレイヤー */
+    background-color: rgba(0, 0, 0, 0.6); /* 背景の透明度を調整 */
     position: relative;
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin: 0; /* デフォルトのマージンを削除 */
+}
+
+/* セクションのスタイル */
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* セクションの最大幅を設定 */
+    width: 100%; /* 幅を100%にして最大幅内で収める */
+    text-align: center; /* セクション内のテキストを中央揃え */
 }
 
 /* セクション */
-section {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.8); /* セクション背景を薄い白で統一 */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
-    color: #222222;
-}
-
 section h2 {
     color: #f5c542;
     text-shadow: 1px 1px #000000;
@@ -87,6 +91,7 @@ section p {
     line-height: 1.6;
     color: #555555;
 }
+
 
 /* ボタン */
 .contact-link {
