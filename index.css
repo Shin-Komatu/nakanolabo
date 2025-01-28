@@ -60,7 +60,7 @@ nav ul li a:hover {
 
 /* メインセクション */
 main {
-    min-height: calc(100vh - 120px); /* ヘッダーとフッターの高さを引いた値 */
+    min-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを引いた値 */
     padding-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
     background-image: url('jojo_pattern.png'); /* ジョジョ風の背景画像 */
     background-size: cover;
@@ -73,6 +73,7 @@ main {
     align-items: center; /* 垂直方向に中央揃え */
     margin: 0; /* デフォルトのマージンを削除 */
 }
+
 
 /* セクションのスタイル */
 section {
@@ -121,7 +122,10 @@ footer {
     text-align: center;
     padding: 15px;
     border-top: 2px solid #f5c542;
-    margin-top: auto; /* フッターを下に配置 */
+    position: fixed; /* フッターを固定 */
+    bottom: 0; /* 画面下部に固定 */
+    width: 100%; /* 画面全体の幅を占める */
+    z-index: 1000; /* 他の要素より前面に表示 */
 }
 
 /* アニメーション */
