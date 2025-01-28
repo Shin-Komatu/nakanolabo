@@ -75,23 +75,19 @@ main {
     margin: 0; /* デフォルトのマージンを削除 */
 }
 
-
 /* セクション */
 section {
     background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
-    padding: 5px;
+    padding: 20px; /* セクション内の余白を調整 */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 800px; /* セクションの最大幅を設定 */
     width: 100%; /* 幅を100%にして最大幅内で収める */
     text-align: center; /* セクション内のテキストを中央揃え */
-    margin-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
+    margin: 0; /* 上下のマージンを削除 */
     padding-bottom: 20px; /* 下部の余白を追加 */
-    flex-grow: 1; /* フレックスボックスで残りのスペースを埋める */
-    max-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを差し引いた最大高さ */
     overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
 }
-
 
 
 section h2 {
