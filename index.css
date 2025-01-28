@@ -28,6 +28,7 @@ header {
     height: 80px; /* ヘッダーの高さを明示的に設定 */
 }
 
+
 header h1 {
     font-size: 2rem;
     letter-spacing: 2px;
@@ -75,7 +76,7 @@ main {
 }
 
 
-/* セクションのスタイル */
+/* セクション */
 section {
     background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
     padding: 5px;
@@ -85,6 +86,7 @@ section {
     width: 100%; /* 幅を100%にして最大幅内で収める */
     text-align: center; /* セクション内のテキストを中央揃え */
     margin-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
+    padding-bottom: 20px; /* 下部の余白を追加 */
 }
 
 
@@ -122,10 +124,8 @@ footer {
     text-align: center;
     padding: 15px;
     border-top: 2px solid #f5c542;
-    position: fixed; /* フッターを固定 */
-    bottom: 0; /* 画面下部に固定 */
-    width: 100%; /* 画面全体の幅を占める */
-    z-index: 1000; /* 他の要素より前面に表示 */
+    margin-top: auto; /* フッターを下に配置 */
+    width: 100%;
 }
 
 /* アニメーション */
