@@ -3,102 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ジョジョ風アニメーション</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: black;
-        }
-
-        /* スタンドのデザイン */
-        .stand {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background-color: #ff6347; /* スタンドの色（赤色） */
-            border-radius: 50%;
-            opacity: 0;
-            transform: scale(0) rotate(0deg);
-            animation: standAnimation 2s ease-in-out forwards;
-        }
-
-        /* スタンドの登場アニメーション */
-        @keyframes standAnimation {
-            0% {
-                opacity: 0;
-                transform: scale(0) rotate(0deg);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2) rotate(180deg); /* 途中で拡大し回転 */
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(360deg); /* 最後に元に戻る */
-            }
-        }
-
-        /* アニメーション終了後にスタンドが弾む */
-        @keyframes bounce {
-            0% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-30px);
-            }
-            50% {
-                transform: translateY(10px);
-            }
-            70% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        .stand.bounce {
-            animation: bounce 1s ease-in-out forwards;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>研究室について</title>
+    <link rel="stylesheet" href="index.css">  
 </head>
 <body>
-    <div id="stand" class="stand"></div>
+    <!-- ヘッダー -->
+    <header>
+        <div class="logo">
+            <a href="index.html" aria-label="ホーム">
+                <h1>仲野研究室</h1>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="news.html" aria-label="ニュース">ニュース</a></li>
+                <li><a href="research.html" aria-label="研究">研究</a></li>
+                <li><a href="lectures.html" aria-label="講義・ゼミ">講義・ゼミ</a></li>
+                <li><a href="student.html" aria-label="所属メンバー">所属メンバー</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- 研究室の概要 -->
+        <section id="about">
+            <h2>仲野研究室への誘い</h2>
+            <p>仲野研究室は、やる気のある学生を求めています。ぜひ原子核物理を学びたいなら仲野研究室へ！</p>
+        </section>
+        
+        <!-- 最新ニュース -->
+        <section id="news">
+            <h2>最新ニュース</h2>
+            <p>研究発表やイベント情報は随時更新中！ホームページをついに作りました！
+            </p>
+            <a class="contact-link" href="#contact" aria-label="お問い合わせページへ">お問い合わせはこちら</a>
+        </section>
+    </main>
+
+    <!-- フッター -->
     <footer>
         <p>仲野研究室</p>
     </footer>
 
     <script>
-        // スタンドが登場するアニメーション
+        // ページがロードされた時に各セクションをフェードインさせる
         window.addEventListener('load', () => {
-            const stand = document.getElementById('stand');
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('visible');
+                }, index * 500); // 各セクションが順番に表示される
+            });
+        });
 
-            // ランダムな位置にスタンドを配置
-            const randomX = Math.random() * window.innerWidth;
-            const randomY = Math.random() * window.innerHeight;
-            stand.style.left = `${randomX}px`;
-            stand.style.top = `${randomY}px`;
-
-            // スタンドの登場アニメーション
-            stand.classList.add('stand');
-
-            // 1秒後に弾むアニメーションを追加
-            setTimeout(() => {
-                stand.classList.add('bounce');
-            }, 2000); // 2秒後に弾む動き
+        // ナビゲーションメニューにホバーした時に色を変更
+        const navLinks = document.querySelectorAll('header nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transform = 'scale(1.1)';
+                link.style.transition = 'transform 0.3s';
+            });
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = 'scale(1)';
+            });
         });
     </script>
 </body>
