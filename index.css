@@ -10,11 +10,11 @@ body {
     height: 100%; /* 画面全体を占める */
 }
 
-/* ヘッダー */
 header {
     background-color: rgba(30, 30, 47, 0.9); /* 半透明のダークカラー */
     color: #f5c542;
     padding: 15px;
+    padding-left: 20px; /* 左側の余白を増やして右寄せ */
     text-align: center;
     position: fixed;
     width: 100%;
@@ -25,6 +25,7 @@ header {
     justify-content: space-between; /* 左右に要素を配置 */
     align-items: center; /* 垂直方向に中央揃え */
 }
+
 
 /* ナビゲーションメニュー */
 nav ul {
