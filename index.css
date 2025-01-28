@@ -1,9 +1,6 @@
 /* 全体のスタイル */
 body {
-    background-image: url('jojo_pattern.png'); /* 背景画像のパスを指定 */
-    background-size: cover; /* 背景画像を画面全体に広げる */
-    background-position: center; /* 背景画像を中央に配置 */
-    background-attachment: fixed; /* スクロールしても背景画像が動かないようにする */
+    background-color: #2c2c54; /* 深い紫 */
     color: #f5c542; /* ゴールド */
     font-family: 'Cinzel', serif; /* Google Fontsから読み込む */
     margin: 0;
@@ -48,6 +45,48 @@ footer {
     padding: 15px;
     border-top: 2px solid #f5c542;
     margin-top: auto; /* フッターを下に配置 */
+}
+
+/* index.css以外にも */
+
+/* index.css */
+
+/* 全体のフォントと背景色を設定 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* ヘッダーのスタイル */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px; /* headerとsectionの間にスペースを追加 */
+}
+
+/* セクションのスタイル */
+section {
+    padding: 100px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* フッターのスタイル */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* 見出しのスタイル */
