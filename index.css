@@ -21,6 +21,9 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid #f5c542;
+    display: flex; /* 横並びにする */
+    justify-content: space-between; /* 左右に要素を配置 */
+    align-items: center; /* 垂直方向に中央揃え */
 }
 
 header h1 {
