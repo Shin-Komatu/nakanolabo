@@ -31,7 +31,7 @@ header h1 {
     font-size: 2rem;
     letter-spacing: 2px;
     text-shadow: 2px 2px #000000;
-    color: #f5c542; /* テキストの色をゴールドに設定 */
+    color: #f5c542; /* ゴールド */
 }
 
 /* ナビゲーションメニュー */
@@ -56,8 +56,6 @@ nav ul li a {
 nav ul li a:hover {
     color: #e74c3c; /* 赤に変化 */
 }
-
-
 
 /* メインセクション */
 main {
@@ -85,7 +83,6 @@ section {
     text-align: center; /* セクション内のテキストを中央揃え */
 }
 
-/* セクション */
 section h2 {
     color: #f5c542;
     text-shadow: 1px 1px #000000;
@@ -123,7 +120,6 @@ footer {
     margin-top: auto; /* フッターを下に配置 */
 }
 
-
 /* アニメーション */
 @keyframes pulse {
     0%, 100% {
@@ -153,57 +149,4 @@ footer {
     animation: stand-appear 2s ease-in-out infinite;
     color: #e74c3c; /* 赤 */
     font-size: 2rem;
-}
-
-
-
-/* 全体のフォントと背景色を設定 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    
-}
-
-/* ヘッダーのスタイル */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-    margin-bottom: 20px; /* headerとsectionの間にスペースを追加 */
-}
-
-/* セクションのスタイル */
-section {
-    padding: 100px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* フッターのスタイル */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-/* 見出しのスタイル */
-h1, h2 {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-}
-
-/* パラグラフのスタイル */
-p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #666;
 }
