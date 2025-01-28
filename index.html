@@ -16,10 +16,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="news.html" aria-label="ニュース">ニュース</a></li>
-                <li><a href="research.html" aria-label="研究">研究</a></li>
-                <li><a href="lectures.html" aria-label="講義・ゼミ">講義・ゼミ</a></li>
-                <li><a href="student.html" aria-label="所属メンバー">所属メンバー</a></li>
+                <li><a href="news.html">ニュース</a></li>
+                <li><a href="research.html">研究</a></li>
+                <li><a href="lectures.html">講義・ゼミ</a></li>
+                <li><a href="student.html">所属メンバー</a></li>
             </ul>
         </nav>
     </header>
@@ -35,39 +35,16 @@
         <!-- 最新ニュース -->
         <section id="news">
             <h2>最新ニュース</h2>
-            <p>研究発表やイベント情報は随時更新中！ホームページをついに作りました！
-            </p>
-            <a class="contact-link" href="#contact" aria-label="お問い合わせページへ">お問い合わせはこちら</a>
+            <p>研究発表やイベント情報は随時更新中！ホームページをついに作りました！</p>
+            <a class="contact-link" href="#contact">お問い合わせはこちら</a>
         </section>
     </main>
 
     <!-- フッター -->
     <footer>
-        <p>仲野研究室</p>
+        <address>
+            <p>仲野研究室</p>
+        </address>
     </footer>
-
-    <script>
-        // ページがロードされた時に各セクションをフェードインさせる
-        window.addEventListener('load', () => {
-            const sections = document.querySelectorAll('section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('visible');
-                }, index * 500); // 各セクションが順番に表示される
-            });
-        });
-
-        // ナビゲーションメニューにホバーした時に色を変更
-        const navLinks = document.querySelectorAll('header nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                link.style.transform = 'scale(1.1)';
-                link.style.transition = 'transform 0.3s';
-            });
-            link.addEventListener('mouseleave', () => {
-                link.style.transform = 'scale(1)';
-            });
-        });
-    </script>
 </body>
 </html>
