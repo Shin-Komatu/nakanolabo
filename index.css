@@ -206,17 +206,3 @@ p {
     line-height: 1.6;
     color: #666;
 }
-/* メインセクションもう一個 */
-main {
-    min-height: calc(100vh - 120px); /* ヘッダーとフッターの高さを引いた値 */
-    background-image: url('jojo_pattern.png'); /* ジョジョ風の背景画像 */
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-    background-color: rgba(204, 180, 180, 0.6); /* 背景の透明度を調整 */
-    position: relative;
-    display: flex; /* フレックスボックスを使用 */
-    justify-content: center; /* 水平方向に中央揃え */
-    align-items: center; /* 垂直方向に中央揃え */
-    margin: 0; /* デフォルトのマージンを削除 */
-}
