@@ -10,10 +10,11 @@ body {
     height: 100%; /* 画面全体を占める */
 }
 
+/* ヘッダー */
 header {
     background-color: rgba(30, 30, 47, 0.9); /* 半透明のダークカラー */
     color: #f5c542;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -21,14 +22,9 @@ header {
     z-index: 1000;
     border-bottom: 2px solid #f5c542;
     display: flex; /* 横並びにする */
-    justify-content: flex-start; /* 左寄せ */
+    justify-content: space-between; /* 左右に要素を配置 */
     align-items: center; /* 垂直方向に中央揃え */
 }
-
-header > * {
-    margin-left: auto; /* 左の要素に自動的にマージンを加える */
-}
-
 
 /* ナビゲーションメニュー */
 nav ul {
