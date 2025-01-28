@@ -25,6 +25,7 @@ header {
     justify-content: space-between; /* 左右に要素を配置 */
     align-items: center; /* 垂直方向に中央揃え */
 }
+
 /* ナビゲーションメニュー */
 nav ul {
     display: flex; /* 横並びにする */
@@ -92,7 +93,6 @@ section p {
     color: #555555;
 }
 
-
 /* ボタン */
 .contact-link {
     display: inline-block;
@@ -119,6 +119,7 @@ footer {
     border-top: 2px solid #f5c542;
     margin-top: auto; /* フッターを下に配置 */
 }
+
 
 /* アニメーション */
 @keyframes pulse {
