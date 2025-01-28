@@ -120,15 +120,17 @@ footer {
     padding: 15px;
     border-top: 2px solid #f5c542;
 }
+
 .container {
     display: flex;
     flex-direction: column;
     height: 100vh;
-  }
-  
-  #hotter {
+}
+
+#hotter { /* 正しいID名に修正 */
     margin-top: auto;
-  }
+}
+
 
 /* アニメーション */
 @keyframes pulse {
