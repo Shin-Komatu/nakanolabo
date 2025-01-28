@@ -8,29 +8,30 @@ window.addEventListener('load', () => {
     stand.style.borderRadius = '50%'; // 丸い形
     stand.style.opacity = '0';
     stand.style.transform = 'scale(0) rotate(0deg)';
+    stand.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
+    stand.style.transformOrigin = 'center';
     document.body.appendChild(stand);
 
-    // ランダムな位置にスタンドを配置
-    const randomX = Math.random() * window.innerWidth;
-    const randomY = Math.random() * window.innerHeight;
+    // ランダムな位置にスタンドを配置（画面内に収まるよう調整）
+    const randomX = Math.random() * (window.innerWidth - 150); // スタンドの幅を考慮
+    const randomY = Math.random() * (window.innerHeight - 150); // スタンドの高さを考慮
     stand.style.left = `${randomX}px`;
     stand.style.top = `${randomY}px`;
 
     // スタンドの登場アニメーション
-    stand.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
     setTimeout(() => {
         stand.style.opacity = '1';
         stand.style.transform = 'scale(1.2) rotate(180deg)';
     }, 100);
 
-    // スタンドが完全に登場した後に弾むアニメーションを追加
+    // 弾むアニメーションを追加
     setTimeout(() => {
         stand.style.transition = 'transform 1s ease-in-out';
-        stand.style.transform = 'scale(1) rotate(360deg)'; // 元に戻す
+        stand.style.transform = 'scale(1) rotate(360deg)';
         stand.style.animation = 'bounce 1s ease-in-out forwards';
-    }, 2000);
+    }, 2100);
 
-    // 弾むアニメーションの定義
+    // 弾むアニメーションの定義をCSSに追加
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes bounce {
@@ -53,6 +54,3 @@ window.addEventListener('load', () => {
     `;
     document.head.appendChild(style);
 });
-
-
-
