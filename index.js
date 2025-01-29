@@ -7,50 +7,52 @@ window.addEventListener('load', () => {
     stand.style.backgroundColor = '#ff6347'; // スタンドの色（赤）
     stand.style.borderRadius = '50%'; // 丸い形
     stand.style.opacity = '0';
-    stand.style.transform = 'scale(0) rotate(0deg)';
-    stand.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
+    stand.style.transform = 'scale(0) rotate(0deg) translateY(-50px)';
+    stand.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
     stand.style.transformOrigin = 'center';
     document.body.appendChild(stand);
 
     // ランダムな位置にスタンドを配置（画面内に収まるよう調整）
-    const randomX = Math.random() * (window.innerWidth - 150); // スタンドの幅を考慮
-    const randomY = Math.random() * (window.innerHeight - 150); // スタンドの高さを考慮
+    const randomX = Math.random() * (window.innerWidth - 150);
+    const randomY = Math.random() * (window.innerHeight - 150);
     stand.style.left = `${randomX}px`;
     stand.style.top = `${randomY}px`;
 
     // スタンドの登場アニメーション
     setTimeout(() => {
         stand.style.opacity = '1';
-        stand.style.transform = 'scale(1.2) rotate(180deg)';
+        stand.style.transform = 'scale(1.2) rotate(360deg) translateY(0)';
     }, 100);
 
-    // 弾むアニメーションを追加
+    // 2回目の動き（ゆっくり回転しながら小さくなる）
     setTimeout(() => {
-        stand.style.transition = 'transform 1s ease-in-out';
-        stand.style.transform = 'scale(1) rotate(360deg)';
-        stand.style.animation = 'bounce 1s ease-in-out forwards';
-    }, 2100);
+        stand.style.transition = 'transform 1.5s ease-in-out';
+        stand.style.transform = 'scale(1) rotate(720deg) translateY(0)';
+    }, 2000);
 
-    // 弾むアニメーションの定義をCSSに追加
+    // フワフワと動くアニメーションの追加
     const style = document.createElement('style');
     style.innerHTML = `
-        @keyframes bounce {
+        @keyframes float {
             0% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-30px);
+                transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(10px);
-            }
-            70% {
-                transform: translateY(0);
+                transform: translateY(-20px) rotate(5deg);
             }
             100% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
             }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
     `;
     document.head.appendChild(style);
+
+    // 最終的にフワフワと揺れる動きを適用
+    setTimeout(() => {
+        stand.classList.add('floating');
+    }, 3500);
 });
