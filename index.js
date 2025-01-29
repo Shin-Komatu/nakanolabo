@@ -1,107 +1,80 @@
-window.addEventListener('load', () => {
-    // スタンドの要素を作成
-    const stand = document.createElement('div');
-    stand.style.position = 'absolute';
-    stand.style.width = '150px';
-    stand.style.height = '150px';
-    stand.style.backgroundColor = '#ff4500';
-    stand.style.opacity = '0';
-    stand.style.transform = 'scale(0) rotate(0deg) translateY(-50px)';
-    stand.style.transition = 'transform 1.5s ease-out, opacity 1.5s ease-out';
-    stand.style.transformOrigin = 'center';
-    stand.style.boxShadow = '0 0 20px rgba(255, 69, 0, 0.8)';
-    document.body.appendChild(stand);
+window.addEventListener("load", () => {
+    const numStands = 5; // スタンドの数
+    const stands = [];
 
-    // スタンドを変形させるための初期設定
-    stand.style.clipPath = 'polygon(50% 0%, 100% 100%, 0% 100%)'; // 三角形
+    for (let i = 0; i < numStands; i++) {
+        // スタンド要素を作成
+        const stand = document.createElement("div");
+        stand.style.position = "absolute";
+        stand.style.width = "100px";
+        stand.style.height = "100px";
+        stand.style.backgroundColor = "#ff4500";
+        stand.style.opacity = "0";
+        stand.style.transform = "scale(0) rotate(0deg)";
+        stand.style.transition = "transform 1.5s ease-out, opacity 1.5s ease-out";
+        stand.style.transformOrigin = "center";
+        stand.style.boxShadow = "0 0 20px rgba(255, 69, 0, 0.8)";
+        stand.style.clipPath = "polygon(50% 0%, 100% 100%, 0% 100%)"; // 三角形
+        document.body.appendChild(stand);
+        stands.push(stand);
 
-    // ゴゴゴゴエフェクト
-    const text = document.createElement('div');
-    text.innerText = 'ゴゴゴゴゴ';
-    text.style.position = 'absolute';
-    text.style.fontSize = '50px';
-    text.style.color = 'purple';
-    text.style.fontWeight = 'bold';
-    text.style.opacity = '0';
-    text.style.transform = 'scale(0)';
-    text.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
-    document.body.appendChild(text);
+        // ランダムな初期位置
+        const randomX = Math.random() * (window.innerWidth - 150);
+        const randomY = Math.random() * (window.innerHeight - 150);
+        stand.style.left = `${randomX}px`;
+        stand.style.top = `${randomY}px`;
 
-    // ランダムな位置に配置
-    const randomX = Math.random() * (window.innerWidth - 150);
-    const randomY = Math.random() * (window.innerHeight - 150);
-    stand.style.left = `${randomX}px`;
-    stand.style.top = `${randomY}px`;
-    text.style.left = `${randomX - 50}px`;
-    text.style.top = `${randomY - 80}px`;
+        // ゴゴゴゴエフェクト
+        const text = document.createElement("div");
+        text.innerText = "ゴゴゴゴゴ";
+        text.style.position = "absolute";
+        text.style.fontSize = "50px";
+        text.style.color = "purple";
+        text.style.fontWeight = "bold";
+        text.style.opacity = "0";
+        text.style.transform = "scale(0)";
+        text.style.transition = "transform 1s ease-out, opacity 1s ease-out";
+        document.body.appendChild(text);
+        text.style.left = `${randomX - 50}px`;
+        text.style.top = `${randomY - 80}px`;
 
-    // スタンドの登場時にフラッシュを追加
-    setTimeout(() => {
-        stand.style.opacity = '1';
-        stand.style.transform = 'scale(1.5) rotate(360deg) translateY(0)';
-        text.style.opacity = '1';
-        text.style.transform = 'scale(1)';
-    }, 100); // 100ms後にフラッシュ効果
+        // スタンド登場
+        setTimeout(() => {
+            stand.style.opacity = "1";
+            stand.style.transform = "scale(1.5) rotate(360deg)";
+            text.style.opacity = "1";
+            text.style.transform = "scale(1)";
+        }, 100);
 
-    // フラッシュ後にスタンドの形状を変形させるアニメーション
-    setTimeout(() => {
-        stand.style.transition = 'transform 1s ease-in-out, clip-path 2s ease-in-out';
-        stand.style.transform = 'scale(1.2) rotate(720deg)';
-        stand.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)'; // 三角形から五角形に変形
-    }, 1500); // フラッシュが終わった後に形状変化を開始
+        // 形状変化
+        setTimeout(() => {
+            stand.style.transition = "transform 1s ease-in-out, clip-path 2s ease-in-out";
+            stand.style.transform = "scale(1.2) rotate(720deg)";
+            stand.style.clipPath = "polygon(50% 0%, 0% 100%, 100% 100%)"; // 変形
+        }, 1500);
 
-    // 衝撃波のような揺れ
-    setTimeout(() => {
-        stand.style.transition = 'transform 0.5s ease-in-out';
-        stand.style.transform = 'scale(1) rotate(1080deg)';
-    }, 2500);
+        // 衝撃波のような揺れ
+        setTimeout(() => {
+            stand.style.transition = "transform 0.5s ease-in-out";
+            stand.style.transform = "scale(1) rotate(1080deg)";
+        }, 2500);
 
-    // 波のように四方八方に散る動き
-    const style = document.createElement('style');
-    style.innerHTML = `
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg) scale(1); }
-            25% { transform: translateY(-10px) rotate(5deg) scale(1.1); }
-            50% { transform: translateY(10px) rotate(-5deg) scale(1); }
-            75% { transform: translateY(-5px) rotate(3deg) scale(1.05); }
-            100% { transform: translateY(0) rotate(0deg) scale(1); }
-        }
+        // 四方八方に飛ばす
+        setTimeout(() => {
+            const angle = Math.random() * 360; // ランダムな角度
+            const distance = 300; // 飛ぶ距離
+            const dx = Math.cos((angle * Math.PI) / 180) * distance;
+            const dy = Math.sin((angle * Math.PI) / 180) * distance;
 
-        @keyframes aura {
-            0% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.8); }
-            50% { box-shadow: 0 0 40px rgba(255, 165, 0, 1); }
-            100% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.8); }
-        }
+            stand.style.transition = "transform 1s ease-out, opacity 1s ease-out";
+            stand.style.transform = `translate(${dx}px, ${dy}px) scale(0) rotate(1440deg)`;
+            stand.style.opacity = "0";
+        }, 3500);
 
-        @keyframes shake {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-5px, 5px); }
-            50% { transform: translate(5px, -5px); }
-            75% { transform: translate(-5px, -5px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        @keyframes scatter {
-            0% { transform: translate(0, 0) scale(1); }
-            20% { transform: translate(-100px, -100px) scale(0.8); }
-            40% { transform: translate(100px, -100px) scale(0.8); }
-            60% { transform: translate(100px, 100px) scale(0.8); }
-            80% { transform: translate(-100px, 100px) scale(0.8); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite, aura 1.5s infinite alternate, shake 0.2s infinite;
-        }
-
-        .scatter {
-            animation: scatter 2s ease-in-out forwards;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // 最終的に波のように散る動きを適用
-    setTimeout(() => {
-        stand.classList.add('scatter');
-    }, 3500); // 形状変化後に波の動きアニメーションを適用
+        // ゴゴゴテキストも消す
+        setTimeout(() => {
+            text.style.transition = "opacity 1s ease-out";
+            text.style.opacity = "0";
+        }, 4000);
+    }
 });
