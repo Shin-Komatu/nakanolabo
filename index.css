@@ -94,6 +94,10 @@ section h2 {
     color: #f5c542;
     text-shadow: 1px 1px #000000;
 }
+section h3 {
+    color: #f59642;
+    text-shadow: 1px 1px #000000;
+}
 
 section p {
     line-height: 1.6;
