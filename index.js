@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
         stand.style.transform = 'scale(1) rotate(1080deg)';
     }, 2500);
 
-    // フワフワと動くアニメーション
+    // 波のように四方八方に散る動き
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes float {
@@ -81,14 +81,27 @@ window.addEventListener('load', () => {
             100% { transform: translate(0, 0); }
         }
 
+        @keyframes scatter {
+            0% { transform: translate(0, 0) scale(1); }
+            20% { transform: translate(-100px, -100px) scale(0.8); }
+            40% { transform: translate(100px, -100px) scale(0.8); }
+            60% { transform: translate(100px, 100px) scale(0.8); }
+            80% { transform: translate(-100px, 100px) scale(0.8); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
         .floating {
             animation: float 3s ease-in-out infinite, aura 1.5s infinite alternate, shake 0.2s infinite;
+        }
+
+        .scatter {
+            animation: scatter 2s ease-in-out forwards;
         }
     `;
     document.head.appendChild(style);
 
-    // 最終的にフワフワと揺れる動きを適用
+    // 最終的に波のように散る動きを適用
     setTimeout(() => {
-        stand.classList.add('floating');
-    }, 3500); // 形状変化後に揺れるアニメーションを適用
+        stand.classList.add('scatter');
+    }, 3500); // 形状変化後に波の動きアニメーションを適用
 });
