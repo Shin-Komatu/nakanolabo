@@ -25,7 +25,7 @@ header {
     align-items: center; /* 垂直方向に中央揃え */
     margin-left: auto; /* 左のマージンを自動 */
     margin-right: auto; /* 右のマージンを自動 */
-    height: 80px; /* ヘッダーの高さを明示的に設定 */
+    height: 60px; /* ヘッダーの高さを明示的に設定 */
 }
 
 
