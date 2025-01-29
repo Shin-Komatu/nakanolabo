@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     stand.style.position = 'absolute';
     stand.style.width = '150px';
     stand.style.height = '150px';
-    stand.style.backgroundColor = '#ff4500'; // ジョジョ風の赤オレンジ
+    stand.style.backgroundColor = '#ff4500';
     stand.style.borderRadius = '50%';
     stand.style.opacity = '0';
     stand.style.transform = 'scale(0) rotate(0deg) translateY(-50px)';
@@ -26,6 +26,30 @@ window.addEventListener('load', () => {
     text.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
     document.body.appendChild(text);
 
+    // 画面全体の時間停止エフェクト
+    const blackout = document.createElement('div');
+    blackout.style.position = 'fixed';
+    blackout.style.top = '0';
+    blackout.style.left = '0';
+    blackout.style.width = '100%';
+    blackout.style.height = '100%';
+    blackout.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    blackout.style.opacity = '0';
+    blackout.style.transition = 'opacity 0.5s ease-out';
+    document.body.appendChild(blackout);
+
+    // 電撃エフェクト
+    const flash = document.createElement('div');
+    flash.style.position = 'fixed';
+    flash.style.top = '0';
+    flash.style.left = '0';
+    flash.style.width = '100%';
+    flash.style.height = '100%';
+    flash.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+    flash.style.opacity = '0';
+    flash.style.transition = 'opacity 0.1s ease-in-out';
+    document.body.appendChild(flash);
+
     // ランダムな位置に配置
     const randomX = Math.random() * (window.innerWidth - 150);
     const randomY = Math.random() * (window.innerHeight - 150);
@@ -34,6 +58,24 @@ window.addEventListener('load', () => {
     text.style.left = `${randomX - 50}px`;
     text.style.top = `${randomY - 80}px`;
 
+    // 画面の時間停止エフェクト
+    setTimeout(() => {
+        blackout.style.opacity = '1';
+    }, 500);
+    
+    setTimeout(() => {
+        blackout.style.opacity = '0';
+    }, 1000);
+
+    // 電撃フラッシュ
+    setTimeout(() => {
+        flash.style.opacity = '1';
+    }, 1200);
+
+    setTimeout(() => {
+        flash.style.opacity = '0';
+    }, 1300);
+
     // スタンドの登場アニメーション
     setTimeout(() => {
         stand.style.opacity = '1';
@@ -41,22 +83,22 @@ window.addEventListener('load', () => {
         stand.style.filter = 'blur(0)';
         text.style.opacity = '1';
         text.style.transform = 'scale(1)';
-    }, 100);
+    }, 1500);
 
-    // 2回目の動き（衝撃波のような揺れ）
+    // 衝撃波のような揺れ
     setTimeout(() => {
         stand.style.transition = 'transform 0.5s ease-in-out';
         stand.style.transform = 'scale(1.2) rotate(720deg)';
         text.style.transition = 'transform 0.5s ease-in-out';
         text.style.transform = 'scale(1.2)';
-    }, 1600);
+    }, 2600);
 
     setTimeout(() => {
         stand.style.transition = 'transform 1s ease-in-out';
         stand.style.transform = 'scale(1) rotate(1080deg)';
         text.style.transition = 'opacity 1s ease-in-out';
         text.style.opacity = '0';
-    }, 2200);
+    }, 3200);
 
     // フワフワと動くアニメーション
     const style = document.createElement('style');
@@ -75,8 +117,16 @@ window.addEventListener('load', () => {
             100% { box-shadow: 0 0 20px rgba(255, 69, 0, 0.8); }
         }
 
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(5px, -5px); }
+            75% { transform: translate(-5px, -5px); }
+            100% { transform: translate(0, 0); }
+        }
+
         .floating {
-            animation: float 3s ease-in-out infinite, aura 1.5s infinite alternate;
+            animation: float 3s ease-in-out infinite, aura 1.5s infinite alternate, shake 0.2s infinite;
         }
     `;
     document.head.appendChild(style);
@@ -84,5 +134,5 @@ window.addEventListener('load', () => {
     // 最終的にフワフワと揺れる動きを適用
     setTimeout(() => {
         stand.classList.add('floating');
-    }, 3000);
+    }, 4000);
 });
