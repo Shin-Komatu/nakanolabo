@@ -95,8 +95,8 @@ section h2 {
     text-shadow: 1px 1px #000000;
 }
 section h3 {
-    color: #f59642;
-    text-shadow: 1px 1px #000000;
+    color: #f59642 !important;
+    text-shadow: 1px 1px #000000 !important;
 }
 
 section p {
