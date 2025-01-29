@@ -84,7 +84,7 @@ section {
     max-width: 800px; /* セクションの最大幅を設定 */
     width: 100%; /* 幅を100%にして最大幅内で収める */
     text-align: center; /* セクション内のテキストを中央揃え */
-    margin: 0; /* 上下のマージンを削除 */
+    margin: 80px auto 0; /* 上部のマージンをheaderの高さに合わせる */
     padding-bottom: 20px; /* 下部の余白を追加 */
     overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
 }
