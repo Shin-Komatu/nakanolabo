@@ -5,14 +5,15 @@ window.addEventListener('load', () => {
     stand.style.width = '150px';
     stand.style.height = '150px';
     stand.style.backgroundColor = '#ff4500';
-    stand.style.borderRadius = '50%';
     stand.style.opacity = '0';
     stand.style.transform = 'scale(0) rotate(0deg) translateY(-50px)';
     stand.style.transition = 'transform 1.5s ease-out, opacity 1.5s ease-out';
-    stand.style.boxShadow = '0 0 20px rgba(255, 69, 0, 0.8)';
-    stand.style.filter = 'blur(5px)';
     stand.style.transformOrigin = 'center';
+    stand.style.boxShadow = '0 0 20px rgba(255, 69, 0, 0.8)';
     document.body.appendChild(stand);
+
+    // スタンドを変形させるための初期設定
+    stand.style.clipPath = 'polygon(50% 0%, 100% 100%, 0% 100%)'; // 三角形
 
     // ゴゴゴゴエフェクト
     const text = document.createElement('div');
@@ -26,30 +27,6 @@ window.addEventListener('load', () => {
     text.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
     document.body.appendChild(text);
 
-    // 画面全体の時間停止エフェクト
-    const blackout = document.createElement('div');
-    blackout.style.position = 'fixed';
-    blackout.style.top = '0';
-    blackout.style.left = '0';
-    blackout.style.width = '100%';
-    blackout.style.height = '100%';
-    blackout.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    blackout.style.opacity = '0';
-    blackout.style.transition = 'opacity 0.5s ease-out';
-    document.body.appendChild(blackout);
-
-    // 電撃エフェクト
-    const flash = document.createElement('div');
-    flash.style.position = 'fixed';
-    flash.style.top = '0';
-    flash.style.left = '0';
-    flash.style.width = '100%';
-    flash.style.height = '100%';
-    flash.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-    flash.style.opacity = '0';
-    flash.style.transition = 'opacity 0.1s ease-in-out';
-    document.body.appendChild(flash);
-
     // ランダムな位置に配置
     const randomX = Math.random() * (window.innerWidth - 150);
     const randomY = Math.random() * (window.innerHeight - 150);
@@ -58,47 +35,26 @@ window.addEventListener('load', () => {
     text.style.left = `${randomX - 50}px`;
     text.style.top = `${randomY - 80}px`;
 
-    // 画面の時間停止エフェクト
-    setTimeout(() => {
-        blackout.style.opacity = '1';
-    }, 500);
-    
-    setTimeout(() => {
-        blackout.style.opacity = '0';
-    }, 1000);
-
-    // 電撃フラッシュ
-    setTimeout(() => {
-        flash.style.opacity = '1';
-    }, 1200);
-
-    setTimeout(() => {
-        flash.style.opacity = '0';
-    }, 1300);
-
-    // スタンドの登場アニメーション
+    // スタンドの登場時にフラッシュを追加
     setTimeout(() => {
         stand.style.opacity = '1';
         stand.style.transform = 'scale(1.5) rotate(360deg) translateY(0)';
-        stand.style.filter = 'blur(0)';
         text.style.opacity = '1';
         text.style.transform = 'scale(1)';
-    }, 1500);
+    }, 100); // 100ms後にフラッシュ効果
+
+    // フラッシュ後にスタンドの形状を変形させるアニメーション
+    setTimeout(() => {
+        stand.style.transition = 'transform 1s ease-in-out, clip-path 2s ease-in-out';
+        stand.style.transform = 'scale(1.2) rotate(720deg)';
+        stand.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)'; // 三角形から五角形に変形
+    }, 1500); // フラッシュが終わった後に形状変化を開始
 
     // 衝撃波のような揺れ
     setTimeout(() => {
         stand.style.transition = 'transform 0.5s ease-in-out';
-        stand.style.transform = 'scale(1.2) rotate(720deg)';
-        text.style.transition = 'transform 0.5s ease-in-out';
-        text.style.transform = 'scale(1.2)';
-    }, 2600);
-
-    setTimeout(() => {
-        stand.style.transition = 'transform 1s ease-in-out';
         stand.style.transform = 'scale(1) rotate(1080deg)';
-        text.style.transition = 'opacity 1s ease-in-out';
-        text.style.opacity = '0';
-    }, 3200);
+    }, 2500);
 
     // フワフワと動くアニメーション
     const style = document.createElement('style');
@@ -134,5 +90,5 @@ window.addEventListener('load', () => {
     // 最終的にフワフワと揺れる動きを適用
     setTimeout(() => {
         stand.classList.add('floating');
-    }, 4000);
+    }, 3500); // 形状変化後に揺れるアニメーションを適用
 });
