@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {
-    const numStands = 3; // スタンドの数
-    const stands = [];
+    const numParticles = 5; // 粒子（スタンド）の数
+    const particles = [];
 
-    // 🌟 フラッシュエフェクト（稲妻のような光）
+    // 🌟 量子フラッシュ（波動関数の崩壊的な光）
     const flash = document.createElement("div");
     flash.style.position = "fixed";
     flash.style.top = "0";
@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
     flash.style.background = "radial-gradient(circle, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 80%)";
     flash.style.opacity = "1";
     flash.style.zIndex = "1000";
-    flash.style.transition = "opacity 0.5s ease-out";
+    flash.style.transition = "opacity 0.2s ease-out";
     document.body.appendChild(flash);
 
     setTimeout(() => {
@@ -20,96 +20,88 @@ window.addEventListener("load", () => {
         setTimeout(() => flash.remove(), 200);
     }, 50);
 
-    // 🌊 画面全体のシェイクエフェクト
-    document.body.style.animation = "shakeScreen 0.4s ease-in-out";
-
-    for (let i = 0; i < numStands; i++) {
-        // スタンド要素を作成
-        const stand = document.createElement("div");
-        stand.style.position = "absolute";
-        stand.style.width = "120px";
-        stand.style.height = "120px";
-        stand.style.backgroundColor = "rgba(255, 69, 0, 0.8)";
-        stand.style.opacity = "0";
-        stand.style.borderRadius = "50%";
-        stand.style.boxShadow = "0 0 40px rgba(255, 69, 0, 1)";
-        stand.style.transform = "scale(0)";
-        stand.style.transition = "transform 1s ease-out, opacity 0.5s ease-in";
-        document.body.appendChild(stand);
-        stands.push(stand);
+    for (let i = 0; i < numParticles; i++) {
+        // 粒子（スタンド）を作成
+        const particle = document.createElement("div");
+        particle.style.position = "absolute";
+        particle.style.width = "10px";
+        particle.style.height = "10px";
+        particle.style.backgroundColor = "rgba(0, 255, 255, 0.8)"; // サイバー感のある青色
+        particle.style.opacity = "0";
+        particle.style.borderRadius = "50%";
+        particle.style.boxShadow = "0 0 20px rgba(0, 255, 255, 1)";
+        particle.style.transform = "scale(0)";
+        particle.style.transition = "transform 1s ease-out, opacity 0.5s ease-in";
+        document.body.appendChild(particle);
+        particles.push(particle);
 
         // ランダムな初期位置
         const randomX = Math.random() * (window.innerWidth - 150);
         const randomY = Math.random() * (window.innerHeight - 150);
-        stand.style.left = `${randomX}px`;
-        stand.style.top = `${randomY}px`;
+        particle.style.left = `${randomX}px`;
+        particle.style.top = `${randomY}px`;
 
-        // 🔥 エネルギー溜め（振動しながら拡大）
+        // 🔥 確率雲（ぼやけながら出現）
         setTimeout(() => {
-            stand.style.opacity = "1";
-            stand.style.transform = "scale(1.2)";
-            stand.style.animation = "vibrate 0.2s infinite alternate";
+            particle.style.opacity = "1";
+            particle.style.transform = "scale(1.2)";
+            particle.style.animation = "quantumFluctuate 0.5s infinite alternate";
         }, 300);
 
-        // ⚡ ドドドエフェクト
-        const text = document.createElement("div");
-        text.innerText = "ドドドドド";
-        text.style.position = "absolute";
-        text.style.fontSize = "60px";
-        text.style.color = "purple";
-        text.style.fontWeight = "bold";
-        text.style.opacity = "0";
-        text.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
-        text.style.animation = "fadeInOut 2s infinite alternate";
-        document.body.appendChild(text);
-        text.style.left = `${randomX - 50}px`;
-        text.style.top = `${randomY - 80}px`;
+        // 🌊 波動関数の波紋
+        const wave = document.createElement("div");
+        wave.style.position = "absolute";
+        wave.style.width = "150px";
+        wave.style.height = "150px";
+        wave.style.left = `${randomX - 70}px`;
+        wave.style.top = `${randomY - 70}px`;
+        wave.style.borderRadius = "50%";
+        wave.style.backgroundColor = "rgba(0, 255, 255, 0.3)";
+        wave.style.opacity = "0.8";
+        wave.style.transform = "scale(0)";
+        wave.style.transition = "transform 1s ease-out, opacity 1s ease-out";
+        document.body.appendChild(wave);
 
         setTimeout(() => {
-            text.style.opacity = "1";
+            wave.style.transform = "scale(3)";
+            wave.style.opacity = "0";
+            setTimeout(() => wave.remove(), 1000);
         }, 500);
 
-        // 💥 最後の爆発的飛散
+        // ⚛️ 量子トンネル効果（瞬間的なテレポート）
+        setInterval(() => {
+            const teleportX = Math.random() * (window.innerWidth - 150);
+            const teleportY = Math.random() * (window.innerHeight - 150);
+            particle.style.transition = "transform 0s"; // 瞬間移動なのでトランジションをオフ
+            particle.style.left = `${teleportX}px`;
+            particle.style.top = `${teleportY}px`;
+            setTimeout(() => {
+                particle.style.transition = "transform 0.5s ease-in-out"; // 徐々に元に戻す
+            }, 50);
+        }, 2000);
+
+        // 💥 最後の消滅（波のように拡散）
         setTimeout(() => {
-            const angle = Math.random() * 360;
-            const distance = 400;
-            const dx = Math.cos((angle * Math.PI) / 180) * distance;
-            const dy = Math.sin((angle * Math.PI) / 180) * distance;
+            particle.style.transition = "transform 0.8s ease-in-out, opacity 0.5s ease-in";
+            particle.style.transform = "scale(0.1)";
+            particle.style.opacity = "0";
 
-            stand.style.transition = "transform 0.8s ease-in-out, opacity 0.5s ease-in";
-            stand.style.transform = `translate(${dx}px, ${dy}px) scale(0.5)`;
-            stand.style.opacity = "0";
-
-            setTimeout(() => stand.remove(), 800);
-        }, 3000);
-
-        // 🌀 ドドドドも消す（フェードアウトしながら拡大）
-        setTimeout(() => {
-            text.style.opacity = "0";
-            text.style.transform = "scale(1.5)";
-            setTimeout(() => text.remove(), 500);
-        }, 3200);
+            setTimeout(() => particle.remove(), 800);
+        }, 5000);
     }
 
     // 🌊 CSS アニメーション
     const style = document.createElement("style");
     style.innerHTML = `
-        @keyframes shakeScreen {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(5px, -5px); }
-            50% { transform: translate(-5px, 5px); }
-            75% { transform: translate(5px, -5px); }
-            100% { transform: translate(0, 0); }
+        @keyframes quantumFluctuate {
+            0% { transform: scale(1.1); opacity: 0.7; filter: blur(1px); }
+            100% { transform: scale(1); opacity: 1; filter: blur(0px); }
         }
 
-        @keyframes vibrate {
-            0% { transform: scale(1.1) rotate(-2deg); }
-            100% { transform: scale(1.2) rotate(2deg); }
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0.8; transform: scale(1); }
-            100% { opacity: 0.2; transform: scale(1.1); }
+        @keyframes quantumWave {
+            0% { opacity: 0.8; transform: scale(0.5); }
+            50% { opacity: 0.3; transform: scale(2); }
+            100% { opacity: 0; transform: scale(3); }
         }
     `;
     document.head.appendChild(style);
