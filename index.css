@@ -89,7 +89,12 @@ section {
     overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
 }
 
-
+.container {
+    display: flex; /* 横並びにする */
+    justify-content: center; /* 中央揃え */
+    gap: 20px; /* セクション間の間隔 */
+    flex-wrap: wrap; /* 画面幅が狭いとき折り返す */
+}
 
 section h2 {
     color: #f5c542;
