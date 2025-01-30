@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
     flash.style.background = "radial-gradient(circle, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 80%)";
     flash.style.opacity = "1";
     flash.style.zIndex = "1000";
-    flash.style.transition = "opacity 0.8s ease-out";
+    flash.style.transition = "opacity 0.2s ease-out";
     document.body.appendChild(flash);
 
     setTimeout(() => {
@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
         stand.style.position = "absolute";
         stand.style.width = "120px";
         stand.style.height = "120px";
-        stand.style.backgroundColor = "rgba(255, 69, 0, 0.8)"; // 赤色
+        stand.style.backgroundColor = "rgba(255, 69, 0, 0.8)";
         stand.style.opacity = "0";
         stand.style.borderRadius = "50%";
         stand.style.boxShadow = "0 0 40px rgba(255, 69, 0, 1)";
@@ -59,7 +59,7 @@ window.addEventListener("load", () => {
         text.style.color = "purple";
         text.style.fontWeight = "bold";
         text.style.opacity = "0";
-        text.style.transition = "opacity 0.5s ease-in-out";
+        text.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
         text.style.animation = "fadeInOut 2s infinite alternate";
         document.body.appendChild(text);
         text.style.left = `${randomX - 50}px`;
@@ -83,9 +83,11 @@ window.addEventListener("load", () => {
             setTimeout(() => stand.remove(), 800);
         }, 3000);
 
-        // ドドドエフェクトも消す
+        // 🌀 ドドドドも消す（フェードアウトしながら拡大）
         setTimeout(() => {
             text.style.opacity = "0";
+            text.style.transform = "scale(1.5)";
+            setTimeout(() => text.remove(), 500);
         }, 3200);
     }
 
