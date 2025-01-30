@@ -1,165 +1,165 @@
-<style>
-    /* index.html にだけ適用 */
-    #index {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background-color: #2c2c54; /* 深い紫 */
-        color: #f5c542; /* ゴールド */
-        font-family: 'Cinzel', serif; /* Google Fontsから読み込む */
-        margin: 0;
-        padding: 0;
-    }
+/* 全体のスタイル */
+body {
+    background-color: #2c2c54; /* 深い紫 */
+    color: #f5c542; /* ゴールド */
+    font-family: 'Cinzel', serif; /* Google Fontsから読み込む */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexboxを使用 */
+    flex-direction: column; /* 縦に並べる */
+    min-height: 100vh; /* 画面の高さを最低でも100vhに */
+}
 
-    /* ヘッダー */
-    #index header {
-        background-color: rgba(30, 30, 47, 0.9); /* 半透明のダークカラー */
-        color: #f5c542;
-        padding: 15px;
-        position: fixed;
-        width: 80%; /* 画面幅の80%に設定 */
-        top: 0;
-        z-index: 1000;
-        border-bottom: 2px solid #f5c542;
-        display: flex; /* 横並びにする */
-        justify-content: center; /* 横方向に中央揃え */
-        align-items: center; /* 垂直方向に中央揃え */
-        margin-left: auto; /* 左のマージンを自動 */
-        margin-right: auto; /* 右のマージンを自動 */
-        height: 60px; /* ヘッダーの高さを明示的に設定 */
-    }
+/* ヘッダー */
+header {
+    background-color: rgba(30, 30, 47, 0.9); /* 半透明のダークカラー */
+    color: #f5c542;
+    padding: 15px;
+    position: fixed;
+    width: 80%; /* 画面幅の80%に設定 */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #f5c542;
+    display: flex; /* 横並びにする */
+    justify-content: center; /* 横方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin-left: auto; /* 左のマージンを自動 */
+    margin-right: auto; /* 右のマージンを自動 */
+    height: 60px; /* ヘッダーの高さを明示的に設定 */
+}
 
-    #index header h1 {
-        font-size: 2rem;
-        letter-spacing: 2px;
-        text-shadow: 2px 2px #000000;
-        color: #f5c542; /* ゴールド */
-    }
 
-    /* ナビゲーションメニュー */
-    #index nav ul {
-        display: flex; /* 横並びにする */
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #000000;
+    color: #f5c542; /* ゴールド */
+}
 
-    #index nav ul li {
-        margin: 0 15px;
-    }
+/* ナビゲーションメニュー */
+nav ul {
+    display: flex; /* 横並びにする */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    #index nav ul li a {
-        text-decoration: none;
-        color: #f5c542;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
+nav ul li {
+    margin: 0 15px;
+}
 
-    #index nav ul li a:hover {
-        color: #e74c3c; /* 赤に変化 */
-    }
+nav ul li a {
+    text-decoration: none;
+    color: #f5c542;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
-    /* メインセクション */
-    #index main {
-        min-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを引いた値 */
-        padding-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
-        background-image: url('jojo_pattern.png'); /* ジョジョ風の背景画像 */
-        background-size: cover;
-        background-position: center;
-        background-blend-mode: overlay;
-        background-color: rgba(204, 180, 180, 0.6); /* 背景の透明度を調整 */
-        position: relative;
-        display: flex; /* フレックスボックスを使用 */
-        justify-content: center; /* 水平方向に中央揃え */
-        align-items: center; /* 垂直方向に中央揃え */
-        margin: 0; /* デフォルトのマージンを削除 */
-    }
+nav ul li a:hover {
+    color: #e74c3c; /* 赤に変化 */
+}
 
-    /* セクション */
-    #index section {
-        background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
-        padding: 20px; /* セクション内の余白を調整 */
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        max-width: 800px; /* セクションの最大幅を設定 */
-        width: 100%; /* 幅を100%にして最大幅内で収める */
-        text-align: center; /* セクション内のテキストを中央揃え */
-        margin: 80px auto 0; /* 上部のマージンをheaderの高さに合わせる */
-        padding-bottom: 20px; /* 下部の余白を追加 */
-        overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
-    }
+/* メインセクション */
+main {
+    min-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを引いた値 */
+    padding-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
+    background-image: url('jojo_pattern.png'); /* ジョジョ風の背景画像 */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(204, 180, 180, 0.6); /* 背景の透明度を調整 */
+    position: relative;
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin: 0; /* デフォルトのマージンを削除 */
+}
 
-    #index section h2 {
-        color: #f5c542;
-        text-shadow: 1px 1px #000000;
-    }
+/* セクション */
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
+    padding: 20px; /* セクション内の余白を調整 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* セクションの最大幅を設定 */
+    width: 100%; /* 幅を100%にして最大幅内で収める */
+    text-align: center; /* セクション内のテキストを中央揃え */
+    margin: 80px auto 0; /* 上部のマージンをheaderの高さに合わせる */
+    padding-bottom: 20px; /* 下部の余白を追加 */
+    overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
+}
 
-    #index section h3 {
-        color: #f59642 !important;
-        text-shadow: 1px 1px #000000 !important;
-    }
 
-    #index section p {
-        line-height: 1.6;
-        color: #555555;
-    }
 
-    /* ボタン */
-    #index .contact-link {
-        display: inline-block;
-        margin-top: 10px;
-        color: #ffffff;
-        background: linear-gradient(90deg, #f5c542, #e74c3c);
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-        animation: pulse 1.5s infinite;
-    }
+section h2 {
+    color: #f5c542;
+    text-shadow: 1px 1px #000000;
+}
+section h3 {
+    color: #f59642 !important;
+    text-shadow: 1px 1px #000000 !important;
+}
 
-    #index .contact-link:hover {
-        background-color: #0056b3;
-    }
+section p {
+    line-height: 1.6;
+    color: #555555;
+}
 
-    /* フッター */
-    #index footer {
-        background-color: rgba(30, 30, 47, 0.9);
-        color: #f5c542;
-        text-align: center;
-        padding: 15px;
-        border-top: 2px solid #f5c542;
-        margin-top: auto; /* フッターを下に配置 */
-        width: 100%;
-    }
+/* ボタン */
+.contact-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ffffff;
+    background: linear-gradient(90deg, #f5c542, #e74c3c);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    animation: pulse 1.5s infinite;
+}
 
-    /* アニメーション */
-    @keyframes pulse {
-        0%, 100% {
-            box-shadow: 0 0 10px #f5c542;
-        }
-        50% {
-            box-shadow: 0 0 20px #e74c3c;
-        }
-    }
+.contact-link:hover {
+    background-color: #0056b3;
+}
 
-    @keyframes stand-appear {
-        0% {
-            transform: scale(0.5) rotate(0deg);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1.2) rotate(15deg);
-            opacity: 0.7;
-        }
-        100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-        }
-    }
+/* フッター */
+footer {
+    background-color: rgba(30, 30, 47, 0.9);
+    color: #f5c542;
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #f5c542;
+    margin-top: auto; /* フッターを下に配置 */
+    width: 100%;
+}
 
-    #index .stand-effect {
-        animation: stand-appear 2s ease-in-out infinite;
-        color: #e74c3c; /* 赤 */
-        font-size: 2rem;
+/* アニメーション */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px #f5c542;
     }
-</style>
+    50% {
+        box-shadow: 0 0 20px #e74c3c;
+    }
+}
+
+@keyframes stand-appear {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(15deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.stand-effect {
+    animation: stand-appear 2s ease-in-out infinite;
+    color: #e74c3c; /* 赤 */
+    font-size: 2rem;
+}
