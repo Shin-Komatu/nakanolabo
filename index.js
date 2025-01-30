@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
     flash.style.background = "radial-gradient(circle, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 80%)";
     flash.style.opacity = "1";
     flash.style.zIndex = "1000";
-    flash.style.transition = "opacity 0.2s ease-out";
+    flash.style.transition = "opacity 0.8s ease-out";
     document.body.appendChild(flash);
 
     setTimeout(() => {
