@@ -75,26 +75,27 @@ main {
     margin: 0; /* デフォルトのマージンを削除 */
 }
 
-/* セクション */
-section {
-    background-color: rgba(255, 255, 255, 0.9); /* セクション背景を薄い白で統一 */
-    padding: 20px; /* セクション内の余白を調整 */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 900px; /* セクションの最大幅を設定 */
-    width: 100%; /* 幅を100%にして最大幅内で収める */
-    text-align: center; /* セクション内のテキストを中央揃え */
-    margin: 80px auto 0; /* 上部のマージンをheaderの高さに合わせる */
-    padding-bottom: 20px; /* 下部の余白を追加 */
-    overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
+/* メインコンテンツのコンテナ */
+.container {
+    display: flex; /* 横並び */
+    justify-content: center; /* 中央寄せ */
+    gap: 20px; /* セクション間の間隔 */
+    flex-wrap: wrap; /* 画面が狭いとき折り返す */
 }
 
-.container {
-    display: flex; /* 横並びにする */
-    justify-content: center; /* 中央揃え */
-    gap: 20px; /* セクション間の間隔 */
-    flex-wrap: wrap; /* 画面幅が狭いとき折り返す */
+/* セクション */
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* 背景色 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px; /* セクションの最大幅 */
+    width: 100%; /* 幅を100%に */
+    text-align: center; /* テキスト中央寄せ */
+    margin: 20px 0; /* 縦方向の間隔 */
+    overflow-y: auto; /* スクロール可能に */
 }
+
 
 section h2 {
     color: #f5c542;
