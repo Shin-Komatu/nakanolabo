@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
             section.style.transform = "translateY(0) scale(1)";
         }, 1000 + index * 500); // 各セクションが0.5秒ずつずれて出現
     });
-    
+
     // 🌟 フラッシュエフェクト（時空の歪み）
     const flash = document.createElement("div");
     flash.style.position = "fixed";
@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
     flash.style.background = "radial-gradient(circle, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 90%)";
     flash.style.opacity = "1";
     flash.style.zIndex = "1000";
-    flash.style.transition = "opacity 0.15s ease-out";
+    flash.style.transition = "opacity 0.5s ease-out";
     document.body.appendChild(flash);
 
     setTimeout(() => {
