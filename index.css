@@ -88,13 +88,7 @@ section {
     padding-bottom: 20px; /* 下部の余白を追加 */
     overflow-y: auto; /* コンテンツが多くてもスクロールできるように */
 }
-* お問い合わせセクションのカスタムスタイル */
-#contact {
-    max-width: 500px; /* 幅を小さく設定 */
-    width: 100%; /* 幅を100%にして最大幅内で収める */
-    padding: 10px; /* 内側の余白を小さく */
-    margin: 40px auto; /* 上下のマージンを調整 */
-}
+
 
 
 section h2 {
