@@ -136,10 +136,10 @@ footer {
 /* アニメーション */
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 0 10px #f5c542;
+        box-shadow: 0 0 5px #f5c542;  /* サイズを小さく */
     }
     50% {
-        box-shadow: 0 0 20px #e74c3c;
+        box-shadow: 0 0 10px #e74c3c;  /* サイズを小さく */
     }
 }
 
@@ -157,6 +157,7 @@ footer {
         opacity: 1;
     }
 }
+
 
 .stand-effect {
     animation: stand-appear 2s ease-in-out infinite;
