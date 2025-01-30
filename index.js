@@ -2,6 +2,19 @@ window.addEventListener("load", () => {
     const numParticles = 8; // 粒子の数を増やす
     const particles = [];
 
+    // 🌟 セクションの出現アニメーション
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section, index) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(50px) scale(0.95)";
+        section.style.transition = "opacity 1s ease-out, transform 1s ease-out";
+        
+        setTimeout(() => {
+            section.style.opacity = "1";
+            section.style.transform = "translateY(0) scale(1)";
+        }, 1000 + index * 500); // 各セクションが0.5秒ずつずれて出現
+    });
+    
     // 🌟 フラッシュエフェクト（時空の歪み）
     const flash = document.createElement("div");
     flash.style.position = "fixed";
