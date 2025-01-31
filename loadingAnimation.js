@@ -1,8 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("animationCanvas");
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+    // キャンバスをリサイズ
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
 
     const colors = ["#00FF00", "#FF7F00"];
 
@@ -39,38 +45,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let diamondSize = 60;
     let energyBeamSize = 20;
     let startTime = Date.now();
-    let isAnimating = true;
 
     function animate() {
-        if (!isAnimating) return;
-
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        drawDiamond(canvas.width / 2, canvas.height / 2, diamondSize, "blue");
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
 
-        angle += 0.1;
-        animateSphere(canvas.width / 2, canvas.height / 2, radius, colors[0], angle);
+        drawDiamond(centerX, centerY, diamondSize, "blue");
+
+        angle += 0.05;
+        animateSphere(centerX, centerY, radius, colors[0], angle);
 
         const timeElapsed = (Date.now() - startTime) / 1000;
-        energyBeamSize = Math.sin(timeElapsed * Math.PI) * 60 + 10;
+        energyBeamSize = Math.sin(timeElapsed * Math.PI) * 60 + 20;
 
-        drawEnergyBeam(canvas.width / 2, canvas.height / 2 - 100, energyBeamSize);
-
-        if (timeElapsed > 2) {
-            radius += 2;
-            colors.push(colors.shift());
-        }
+        drawEnergyBeam(centerX, centerY - 100, energyBeamSize);
 
         requestAnimationFrame(animate);
     }
 
     animate();
-
-    window.addEventListener("load", () => {
-        isAnimating = false;
-        document.getElementById("loadingScreen").style.opacity = "0";
-        setTimeout(() => {
-            document.getElementById("loadingScreen").style.display = "none";
-        }, 1000);
-    });
 });
