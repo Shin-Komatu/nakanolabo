@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    const numParticles = 8; // 粒子の数を増やす
+    const numParticles = 8;
     const particles = [];
 
     // 🌟 セクションの出現アニメーション
@@ -12,10 +12,10 @@ window.addEventListener("load", () => {
         setTimeout(() => {
             section.style.opacity = "1";
             section.style.transform = "translateY(0) scale(1)";
-        }, 1000 + index * 500); // 各セクションが0.5秒ずつずれて出現
+        }, 1000 + index * 500);
     });
 
-    // 🌟 フラッシュエフェクト（時空の歪み）
+    // 🌟 フラッシュエフェクト
     const flash = document.createElement("div");
     flash.style.position = "fixed";
     flash.style.top = "0";
@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
     flash.style.height = "100%";
     flash.style.background = "radial-gradient(circle, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 90%)";
     flash.style.opacity = "1";
-    flash.style.zIndex = "1000";
+    flash.style.zIndex = "999";
     flash.style.transition = "opacity 0.5s ease-out";
     document.body.appendChild(flash);
 
@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
         setTimeout(() => flash.remove(), 200);
     }, 50);
 
-    // 🌌 干渉パターンの背景を追加
+    // 🌌 干渉パターンの背景
     const interference = document.createElement("div");
     interference.style.position = "fixed";
     interference.style.top = "0";
@@ -51,8 +51,8 @@ window.addEventListener("load", () => {
         setTimeout(() => interference.style.opacity = "0", 3000);
     }, 500);
 
+    // 🌟 粒子（スタンドエフェクト）
     for (let i = 0; i < numParticles; i++) {
-        // 粒子（スタンド）を作成
         const particle = document.createElement("div");
         particle.style.position = "absolute";
         particle.style.width = "12px";
@@ -63,23 +63,22 @@ window.addEventListener("load", () => {
         particle.style.boxShadow = "0 0 30px rgba(0, 255, 255, 1)";
         particle.style.transform = "scale(0)";
         particle.style.transition = "transform 1s ease-out, opacity 0.5s ease-in";
+        particle.style.zIndex = "100";
         document.body.appendChild(particle);
         particles.push(particle);
 
-        // ランダムな初期位置
         const randomX = Math.random() * (window.innerWidth - 150);
         const randomY = Math.random() * (window.innerHeight - 150);
         particle.style.left = `${randomX}px`;
         particle.style.top = `${randomY}px`;
 
-        // 🔥 確率雲（複数レイヤーのゆらぎ）
         setTimeout(() => {
             particle.style.opacity = "1";
             particle.style.transform = "scale(1.3)";
             particle.style.animation = "quantumFluctuate 0.5s infinite alternate, quantumSpin 1s linear infinite";
         }, 300);
 
-        // 🌊 波動関数の波紋
+        // 波動関数の波紋
         const wave = document.createElement("div");
         wave.style.position = "absolute";
         wave.style.width = "180px";
@@ -91,6 +90,7 @@ window.addEventListener("load", () => {
         wave.style.opacity = "0.8";
         wave.style.transform = "scale(0)";
         wave.style.transition = "transform 1.2s ease-out, opacity 1.2s ease-out";
+        wave.style.zIndex = "99";
         document.body.appendChild(wave);
 
         setTimeout(() => {
@@ -99,21 +99,7 @@ window.addEventListener("load", () => {
             setTimeout(() => wave.remove(), 1200);
         }, 500);
 
-        // ⚛️ 量子もつれ（ペアの粒子が同期して動く）
-        if (i % 2 === 0) {
-            setInterval(() => {
-                const teleportX = Math.random() * (window.innerWidth - 150);
-                const teleportY = Math.random() * (window.innerHeight - 150);
-                particle.style.transition = "transform 0s";
-                particle.style.left = `${teleportX}px`;
-                particle.style.top = `${teleportY}px`;
-                setTimeout(() => {
-                    particle.style.transition = "transform 0.5s ease-in-out";
-                }, 50);
-            }, 1800);
-        }
-
-        // 💥 最後の消滅（シュレーディンガー方程式の波のように消える）
+        // 💥 最後の消滅
         setTimeout(() => {
             particle.style.transition = "transform 1s ease-in-out, opacity 0.5s ease-in";
             particle.style.transform = "scale(0.1)";
