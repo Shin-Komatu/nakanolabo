@@ -1,11 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("animationCanvas");
+
+    // **キャンバスが取得できない場合のエラー処理**
+    if (!canvas) {
+        console.error("❌ animationCanvas が見つかりません！ index.html に <canvas id='animationCanvas'></canvas> を追加してください。");
+        return;
+    }
+
     const ctx = canvas.getContext("2d");
 
-    // キャンバスをリサイズ
+    // **キャンバスのサイズを更新**
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        console.log("✅ キャンバスサイズ更新:", canvas.width, canvas.height);
     }
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
