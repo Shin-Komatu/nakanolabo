@@ -1,16 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("animationCanvas");
 
+    // **キャンバスが取得できない場合のエラー処理**
     if (!canvas) {
-        console.error("❌ animationCanvas が見つかりません！");
+        console.error("❌ animationCanvas が見つかりません！ index.html に <canvas id='animationCanvas'></canvas> を追加してください。");
         return;
     }
 
     const ctx = canvas.getContext("2d");
 
+    // **キャンバスのサイズを更新**
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        console.log("✅ キャンバスサイズ更新:", canvas.width, canvas.height);
     }
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
@@ -50,10 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let diamondSize = 60;
     let energyBeamSize = 20;
     let startTime = Date.now();
-    let isAnimating = true;
 
     function animate() {
-        if (!isAnimating) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         const centerX = canvas.width / 2;
@@ -73,18 +74,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animate();
-
-    // **⏳ 5秒後にアニメーションを終了し、index.js を実行**
-    setTimeout(() => {
-        isAnimating = false;
-
-        // キャンバスをフェードアウト
-        canvas.style.transition = "opacity 1s ease-out";
-        canvas.style.opacity = "0";
-
-        setTimeout(() => {
-            canvas.remove(); // キャンバスを削除
-            window.dispatchEvent(new Event("animationComplete")); // index.js に通知
-        }, 1000);
-    }, 5000);
 });
