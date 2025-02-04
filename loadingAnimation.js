@@ -85,3 +85,85 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
 });
 
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import gsap from 'gsap';
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+camera.position.set(0, 2, 5);
+controls.update();
+
+// ライト設定
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(5, 10, 5);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0x404040));
+
+// マネキンの読み込み
+const loader = new GLTFLoader();
+let mannequin;
+loader.load('https://example.com/mannequin.glb', (gltf) => {
+    mannequin = gltf.scene;
+    mannequin.scale.set(1, 1, 1);
+    scene.add(mannequin);
+});
+
+// カメハメ波の球体
+const kamehamehaGeometry = new THREE.SphereGeometry(0.2, 32, 32);
+const kamehamehaMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff });
+const kamehameha = new THREE.Mesh(kamehamehaGeometry, kamehamehaMaterial);
+kamehameha.visible = false;
+scene.add(kamehameha);
+
+function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+}
+animate();
+
+function triggerKamehameha() {
+    if (!mannequin) return;
+    
+    kamehameha.visible = true;
+    kamehameha.position.set(0, 1.5, 0);
+    
+    gsap.to(kamehameha.position, {
+        z: -5,
+        duration: 1.5,
+        onComplete: () => {
+            splitEffect();
+        }
+    });
+}
+
+function splitEffect() {
+    for (let i = 0; i < 5; i++) {
+        const fragment = kamehameha.clone();
+        scene.add(fragment);
+        fragment.position.set(kamehameha.position.x, kamehameha.position.y, kamehameha.position.z);
+        gsap.to(fragment.position, {
+            x: (Math.random() - 0.5) * 2,
+            y: (Math.random() - 0.5) * 2,
+            z: fragment.position.z - 1,
+            duration: 1,
+            onComplete: () => {
+                gsap.to(fragment.material, { opacity: 0, duration: 0.5, onComplete: () => scene.remove(fragment) });
+            }
+        });
+    }
+    gsap.to(kamehameha.material, { opacity: 0, duration: 0.5, onComplete: () => { scene.remove(kamehameha); } });
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+        triggerKamehameha();
+    }
+});
