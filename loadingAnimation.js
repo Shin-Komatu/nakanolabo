@@ -1,19 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("animationCanvas");
+    let canvas = document.getElementById("animationCanvas");
 
-    // **キャンバスが取得できない場合のエラー処理**
+    // **キャンバスが存在しない場合は作成**
     if (!canvas) {
-        console.error("❌ animationCanvas が見つかりません！ index.html に <canvas id='animationCanvas'></canvas> を追加してください。");
-        return;
+        canvas = document.createElement("canvas");
+        canvas.id = "animationCanvas";
+        document.body.appendChild(canvas);
     }
 
     const ctx = canvas.getContext("2d");
+
+    // **キャンバスのスタイルを設定して背景に固定**
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.style.zIndex = "-1"; // 背景として表示
+    canvas.style.pointerEvents = "none"; // クリックを邪魔しない
 
     // **キャンバスのサイズを更新**
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        console.log("✅ キャンバスサイズ更新:", canvas.width, canvas.height);
     }
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
@@ -75,3 +84,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animate();
 });
+
