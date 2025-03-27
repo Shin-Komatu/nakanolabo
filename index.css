@@ -16,7 +16,7 @@ header {
     color: #f5c542;
     padding: 15px;
     position: fixed;
-    width: 100%; /* 画面幅の80%に設定 */
+    width: 100%; /* 画面幅の100%に設定 */
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid #f5c542;
