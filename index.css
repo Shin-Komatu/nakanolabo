@@ -63,11 +63,11 @@ nav ul li a:hover {
 main {
     min-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを引いた値 */
     padding-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
-    background-image: url('download.png'); /* ジョジョ風の背景画像 */
+    background-image: url('download.png'); /* 背景画像 */
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
-    background-color: rgba(204, 180, 180, 0.6); /* 背景の透明度を調整 */
+    background-color: rgba(204, 196, 180, 0.461); /* 背景の透明度を調整 */
     position: relative;
     display: flex; /* フレックスボックスを使用 */
     justify-content: center; /* 水平方向に中央揃え */
