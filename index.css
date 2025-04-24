@@ -63,7 +63,7 @@ nav ul li a:hover {
 main {
     min-height: calc(100vh - 120px - 60px); /* ヘッダーとフッターの高さを引いた値 */
     padding-top: 120px; /* ヘッダーの高さ分だけ余白を追加 */
-    background-image: url('jojo_pattern.png'); /* ジョジョ風の背景画像 */
+    background-image: url('download.png'); /* ジョジョ風の背景画像 */
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
